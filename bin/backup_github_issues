@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -eu
 
+[ -e ".git" ] || {
+  echo "this isn't a git repo" && exit 1
+}
+
 mkdir -p issues
 # Executables declared in package.json
 download-github-issues-json
