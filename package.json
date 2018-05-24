@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Backup all the issues of a github repo, including the comments, events, and labels",
   "bin": {
-    "backup-github-issues": "./bin/backup_github_issues"
+    "backup-github-issues": "./bin/backup_github_issues",
+    "download-github-issues-json": "./scripts/download_json",
+    "download-github-issues-html": "./scripts/download_html"
   },
   "main": "index.js",
   "directories": {
@@ -23,6 +25,7 @@
     "bluebird": "^3.5.1",
     "bluereq": "^2.1.7",
     "chalk": "^2.4.1",
-    "config": "^1.30.0"
+    "config": "^1.30.0",
+    "jsondepth": "^1.9.1"
   }
 }

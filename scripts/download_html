@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+repo=$(git remote -v | grep origin | grep fetch | awk '{printf $2}' | sed 's/.*://' | sed 's/.git//')
+echo "repo: $repo"
+last_id=$(jd ./issues/data.json ._keys._last)
+echo "issues: $last_id"
+mkdir -p ./issues/html
+cd ./issues/html
+
+for i in {1..$last_id}
+do
+  printf "\rdownloading html pages: $i/$last_id   "
+  padded_filename=$(printf %04d $i)
+  curl -s "https://github.com/${repo}/issues/${i}" > "${padded_filename}.html"
+done
+
+echo "\ndone"
