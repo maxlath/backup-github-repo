@@ -1,16 +1,50 @@
 #!/usr/bin/env zsh
+set -eu
+
 repo=$(git remote -v | grep origin | grep fetch | awk '{printf $2}' | sed 's/.*://' | sed 's/.git//')
 echo "repo: $repo"
 last_id=$(jd ./issues/data.json ._keys._last)
 echo "issues: $last_id"
-mkdir -p ./issues/html
+mkdir -p ./issues/html/assets
 cd ./issues/html
 
 for i in {1..$last_id}
 do
   printf "\rdownloading html pages: $i/$last_id   "
   padded_filename=$(printf %04d $i)
-  curl -s "https://github.com/${repo}/issues/${i}" > "${padded_filename}.html"
+  curl -sL "https://github.com/${repo}/issues/${i}" > "${padded_filename}.html"
 done
 
-echo "\ndone"
+replace_url_by_asset_hash(){
+  url="$1"
+  hash=$(echo $url | sha1sum | awk '{printf $1}')
+  [ -e "./assets/${hash}" ] || {
+    echo "creating and replacing in html files:"
+    echo "url: $url"
+    echo "hash: $hash"
+    curl -sL "$url" > "./assets/${hash}" || { echo "couldn't fetch $url and put it into ./assets/${hash}" && exit 1 }
+    sed -i "s@$url@assets/${hash}@g" *.html
+  }
+}
+
+# cf https://stackoverflow.com/a/16318005/3324977
+cat 0001.html | grep 'rel="stylesheet"' | sed 's/.*href="//' | sed 's/".*//' | while read -r line ;
+  do replace_url_by_asset_hash "$line" ;
+done ;
+
+# Preventing resources to be blocked by integrity checks
+sed -i 's/ integrity=/ data-integrity=/' *.html
+
+# Hidding some divs
+sed -i 's/ class="signup-prompt-bg/ style="display: none;" class="hidden signup-prompt-bg/' *.html
+sed -i 's/ class="flash flash-warn/ style="display: none;" class="hidden flash flash-warn/' *.html
+
+cat *.html | grep img | sed 's/.*src="//' | sed 's/".*//' | while read -r line ;
+cat *.html | grep img | while read -r line ;
+  echo "raw line: $line"
+  cleaned_line=$(echo "$line" | sed 's/.*src="//' | sed 's/".*//')
+  echo "cleaned line: $cleaned_line"
+  do replace_url_by_asset_hash "$cleaned_line";
+done ;
+
+printf "\ndone"
