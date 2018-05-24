@@ -1,0 +1,28 @@
+{
+  "name": "backup-github-issues",
+  "version": "1.0.0",
+  "description": "Backup all the issues of a github repo, including the comments, events, and labels",
+  "bin": {
+    "backup-github-issues": "./bin/backup_github_issues"
+  },
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backup",
+    "github",
+    "issues"
+  ],
+  "author": "maxlath",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "bluereq": "^2.1.7",
+    "chalk": "^2.4.1",
+    "config": "^1.30.0"
+  }
+}

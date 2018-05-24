@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+const path = require('path')
+const config = require('../lib/config')
+if (typeof config.token !== 'string') {
+  require('../lib/init_token')()
+  process.exit()
+}
+
+Promise = require('bluebird')
+const writeFile = Promise.promisify(require('fs').writeFile)
+const getIssues = require('../lib/get_issues')
+const { green, grey } = require('chalk')
+
+const format = require('../lib/format')
+
+const save = issuesIndex => {
+  return writeFile('./issues.json', JSON.stringify(issuesIndex, null, 2))
+}
+
+const getLocalIssuesOrFetch = () => {
+  try {
+    const issuesPath = path.join(process.cwd(), './issues.json')
+    issues = require(issuesPath)
+    issuesCount = Object.keys(issues).length
+    console.log(green(`${issuesCount} issues found at ${issuesPath}`))
+    console.log(grey(`delete ${issuesPath} and re-run this command to update`))
+    return Promise.resolve(issues)
+  } catch (err) {
+    if (err.code !== 'MODULE_NOT_FOUND') throw err
+    return getIssues()
+    .then(format)
+    .then(save)
+  }
+}
+
+getLocalIssuesOrFetch()
+.catch(console.error)
