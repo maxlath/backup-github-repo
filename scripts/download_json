@@ -10,6 +10,7 @@ if (typeof config.token !== 'string') {
   process.exit()
 }
 
+const folderPath = path.join(process.cwd(), './issues')
 const issuesPath = path.join(process.cwd(), './issues/data.json')
 console.log(grey(`issues data path: ${issuesPath}`))
 
@@ -25,7 +26,7 @@ const getLocalIssuesOrFetch = () => {
     issues = require(issuesPath)
     issuesCount = Object.keys(issues).length
     console.log(green(`${issuesCount} issues found at ${issuesPath}`))
-    console.log(grey(`delete ${issuesPath} and re-run this command to update`))
+    console.log(grey(`delete ${folderPath} and re-run this command to update`))
     return Promise.resolve(issues)
   } catch (err) {
     if (err.code !== 'MODULE_NOT_FOUND') throw err
