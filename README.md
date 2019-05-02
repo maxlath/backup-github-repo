@@ -1,6 +1,6 @@
 # backup-github-issues
 
-Backup all the issues of a github repo, including the comments, events, and labels, as JSON and as HTML.
+Backup all the issues of a Github repo, including the comments, events, and labels, as JSON and as HTML.
 
 **Features**
 * generate a JSON file with all the issues ([demo](https://github.com/maxlath/backup-github-issues/blob/master/demo/data.json))
