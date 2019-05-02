@@ -37,4 +37,7 @@ const getLocalIssuesOrFetch = () => {
 }
 
 getLocalIssuesOrFetch()
-.catch(console.error)
+.catch(err => {
+  console.error('[download_json] failed to getLocalIssuesOrFetch', err)
+  process.exit(1)
+})
