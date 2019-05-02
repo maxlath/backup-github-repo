@@ -1,18 +1,18 @@
-# backup-github-issues
+# backup-github-repo
 
 Backup all the issues of a Github repo, including the comments, events, and labels, as JSON and as HTML.
 
 **Features**
-* generate a JSON file with all the issues ([demo](https://github.com/maxlath/backup-github-issues/blob/master/demo/data.json))
-* generate one HTML file per issue ([demo](https://github.com/maxlath/backup-github-issues/tree/master/demo/html))
-* download CSS files and images locally to allow offline browsing ([demo](https://github.com/maxlath/backup-github-issues/tree/master/demo/html/assets))
+* generate a JSON file with all the issues and pull requests, including comments ([demo](https://github.com/maxlath/backup-github-repo/blob/master/demo/data.json))
+* generate one HTML file per issue or pull request ([demo](https://github.com/maxlath/backup-github-repo/tree/master/demo/html))
+* download CSS files and images locally to allow offline browsing ([demo](https://github.com/maxlath/backup-github-repo/tree/master/demo/html/assets))
 
 ## Install
 ```sh
-git clone https://github.com/maxlath/backup-github-issues
-cd backup-github-issues
+git clone https://github.com/maxlath/backup-github-repo
+cd backup-github-repo
 npm install
-# Make backup-github-issues available globally
+# Make backup-github-repo available globally
 npm link
 ```
 
@@ -21,7 +21,7 @@ npm link
 ```sh
 cd /path/to/my/repo/to/backup
 # First run will give you instructions to set a Github API token
-backup-github-issues
+backup-github-repo
 ```
 
 ## License
