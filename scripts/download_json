@@ -7,7 +7,7 @@ const { green, grey } = require('chalk')
 
 if (typeof config.token !== 'string') {
   require('../lib/init_token')()
-  process.exit()
+  process.exit(1)
 }
 
 const folderPath = path.join(process.cwd(), './issues')
