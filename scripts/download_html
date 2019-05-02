@@ -10,7 +10,7 @@ cd ./issues/html
 
 echo "Download issues HTML sequentially"
 # See curl(1) and https://www.chronicle.com/blogs/profhacker/download-a-sequential-range-of-urls-with-curl/41055
-curl -L "https://github.com/${repo}/issues/[1-${last_id}]" -o "#1.html" -# --limit-rate 10M
+curl -L "https://github.com/${repo}/issues/[1-${last_id}]" -o "#1.html" --limit-rate 10M 2>&1 | grep -E '^\['
 
 echo "Padding filenames with zeros"
 for i in {1..$last_id}
