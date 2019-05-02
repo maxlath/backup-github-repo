@@ -5,46 +5,38 @@ const path = require('path')
 const config = require('../lib/config')
 const { green, blue, grey } = require('chalk')
 
-const [ section ] = process.argv.slice(2)
-
-if (section !== 'issues' && section !== 'pulls') {
-  throw new Error(`invalid section: ${section}`)
-}
-
 if (typeof config.token !== 'string') {
   require('../lib/init_token')()
   process.exit(1)
 }
 
-const folderPath = path.join(process.cwd(), `./repo-backup/${section}`)
-const sectionPath = path.join(process.cwd(), `./repo-backup/${section}/data.json`)
-console.log(grey(`${section} data path: ${sectionPath}`))
+const folderPath = path.join(process.cwd(), `./repo-backup`)
+const dataPath = path.join(process.cwd(), `./repo-backup/data.json`)
+console.log(grey(`data path: ${dataPath}`))
 
-const getSectionData = require('../lib/get_section_data')
+const getRepoData = require('../lib/get_repo_data')
 const format = require('../lib/format')
 
-const save = sectionDataIndex => {
-  return writeFile(sectionPath, JSON.stringify(sectionDataIndex, null, 2))
-}
+const save = data =>  writeFile(dataPath, JSON.stringify(data, null, 2))
 
-const getLocalSectionDataOrFetch = () => {
+const getLocalDataOrFetch = () => {
   try {
-    sectionData = require(sectionPath)
-    sectionDataCount = Object.keys(sectionData).length
-    console.log(green(`${sectionDataCount} ${section} found at ${sectionPath}`))
+    data = require(dataPath)
+    entriesCount = Object.keys(data).length
+    console.log(green(`${entriesCount} issues and pull requests found at ${dataPath}`))
     console.log(blue(`delete ${folderPath} and re-run this command to update`))
-    return Promise.resolve(sectionData)
+    return Promise.resolve(data)
   } catch (err) {
     if (err.code !== 'MODULE_NOT_FOUND') throw err
-    return getSectionData(section)
+    return getRepoData()
     .then(format)
     .then(save)
   }
 }
 
-getLocalSectionDataOrFetch()
-.then(() => console.log(green(`done downloading ${section} data`)))
+getLocalDataOrFetch()
+.then(() => console.log(green(`done downloading repo data`)))
 .catch(err => {
-  console.error(`[download_json][${section}] failed to getLocalSectionDataOrFetch`, err)
+  console.error(`[download_json] failed to getLocalDataOrFetch`, err)
   process.exit(1)
 })

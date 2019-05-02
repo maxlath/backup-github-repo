@@ -1,25 +1,21 @@
 #!/usr/bin/env bash
 set -eu
 
-section=$1
-
 repo=$(git remote -v | grep origin | grep fetch | awk '{printf $2}' | sed 's|^.*:||' | sed 's|//github.com/||' | sed 's|\.git$||')
 echo "repo: $repo"
-last_id=$(jd "./repo-backup/${section}/data.json" ._keys._last)
-echo "${section}: $last_id"
+last_id=$(jd "./repo-backup/data.json" ._keys._last)
+echo "entries: $last_id"
 
-cd "./repo-backup/${section}/html"
+cd "./repo-backup/html"
 
 if [[ "$last_id" == "1" ]] ; then
-  echo "Download single issue"
-  curl -sL "https://github.com/${repo}/${section}/1" > "1.html"
+  echo "Download single issue or pull request"
+  curl -sL "https://github.com/${repo}/issues/1" > "1.html"
 else
-  echo "Download ${section} HTML sequentially"
-  entry_name=$section
-  if [[ "$section" == "pulls" ]] ; then entry_name=pull ; fi ;
+  echo "Download issues and pull requests HTML sequentially"
   # See curl(1) and https://www.chronicle.com/blogs/profhacker/download-a-sequential-range-of-urls-with-curl/41055
-  curl -L "https://github.com/${repo}/${entry_name}/[1-${last_id}]" -o "#1.html" --limit-rate 10M 2>&1 | grep -E '^\['
-  echo "Done downloading ${section} HTML sequentially"
+  curl -L "https://github.com/${repo}/issues/[1-${last_id}]" -o "#1.html" --limit-rate 10M 2>&1 | grep -E '^\['
+  echo "Done downloading issues and pull requests HTML sequentially"
 fi
 
 echo "Padding filenames with zeros"

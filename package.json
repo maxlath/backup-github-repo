@@ -4,8 +4,8 @@
   "description": "Backup all the issues and pull requests of a Github repo, including the comments, events, and labels, as JSON and as HTML",
   "bin": {
     "backup-github-repo": "./bin/backup_github_repo",
-    "download-github-section-json": "./scripts/download_json",
-    "download-github-section-html": "./scripts/download_html"
+    "download-github-repo-json": "./scripts/download_json",
+    "download-github-repo-html": "./scripts/download_html"
   },
   "main": "index.js",
   "directories": {
