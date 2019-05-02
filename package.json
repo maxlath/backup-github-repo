@@ -1,7 +1,7 @@
 {
   "name": "backup-github-issues",
   "version": "1.0.0",
-  "description": "Backup all the issues of a github repo, including the comments, events, and labels",
+  "description": "Backup all the issues of a github repo, including the comments, events, and labels, as JSON and as HTML",
   "bin": {
     "backup-github-issues": "./bin/backup_github_issues",
     "download-github-issues-json": "./scripts/download_json",

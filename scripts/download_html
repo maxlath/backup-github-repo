@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 set -eu
 
-repo=$(git remote -v | grep origin | grep fetch | awk '{printf $2}' | sed 's/.*://' | sed 's/.git//')
+repo=$(git remote -v | grep origin | grep fetch | awk '{printf $2}' | sed 's|^.*:||' | sed 's|//github.com/||' | sed 's|\.git$||')
 echo "repo: $repo"
 last_id=$(jd ./issues/data.json ._keys._last)
 echo "issues: $last_id"
