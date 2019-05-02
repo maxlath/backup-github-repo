@@ -11,6 +11,7 @@ Backup all the issues of a Github repo, including the comments, events, and labe
 ```sh
 git clone https://github.com/maxlath/backup-github-issues
 cd backup-github-issues
+npm install
 # Make backup-github-issues available globally
 npm link
 ```
