@@ -26,6 +26,6 @@
     "bluereq": "^2.1.7",
     "chalk": "^2.4.1",
     "config": "^1.30.0",
-    "jsondepth": "^1.9.1"
+    "jsondepth": "^1.9.2"
   }
 }
