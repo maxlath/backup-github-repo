@@ -1,11 +1,11 @@
 {
-  "name": "backup-github-issues",
+  "name": "backup-github-repo",
   "version": "1.0.0",
-  "description": "Backup all the issues of a Github repo, including the comments, events, and labels, as JSON and as HTML",
+  "description": "Backup all the issues and pull requests of a Github repo, including the comments, events, and labels, as JSON and as HTML",
   "bin": {
-    "backup-github-issues": "./bin/backup_github_issues",
-    "download-github-issues-json": "./scripts/download_json",
-    "download-github-issues-html": "./scripts/download_html"
+    "backup-github-repo": "./bin/backup_github_repo",
+    "download-github-section-json": "./scripts/download_json",
+    "download-github-section-html": "./scripts/download_html"
   },
   "main": "index.js",
   "directories": {
@@ -17,7 +17,14 @@
   "keywords": [
     "backup",
     "github",
-    "issues"
+    "repo",
+    "repository",
+    "issues",
+    "pulls",
+    "pull requests",
+    "json",
+    "html",
+    "offline"
   ],
   "author": "maxlath",
   "license": "MIT",

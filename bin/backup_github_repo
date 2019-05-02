@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -eu
+
+[ -e ".git" ] || {
+  echo "this isn't a git repo" && exit 1
+}
+
+mkdir -p repo-backup/issues/html/assets
+mkdir -p repo-backup/pulls/html
+# Sharing assets folder: needs to be done from the html files directory
+# as relative paths can't go back (ex: '../../assets' isn't an acceptable path)
+ln -s $(pwd)/repo-backup/issues/html/assets $(pwd)/repo-backup/pulls/html/assets
+
+# Executables declared in package.json
+download-github-section-json issues
+download-github-section-html issues
+
+download-github-section-json pulls
+download-github-section-html pulls

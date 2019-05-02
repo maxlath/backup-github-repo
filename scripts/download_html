@@ -1,21 +1,25 @@
 #!/usr/bin/env bash
 set -eu
 
+section=$1
+
 repo=$(git remote -v | grep origin | grep fetch | awk '{printf $2}' | sed 's|^.*:||' | sed 's|//github.com/||' | sed 's|\.git$||')
 echo "repo: $repo"
-last_id=$(jd ./issues/data.json ._keys._last)
-echo "issues: $last_id"
-mkdir -p ./issues/html/assets
-cd ./issues/html
+last_id=$(jd "./repo-backup/${section}/data.json" ._keys._last)
+echo "${section}: $last_id"
+
+cd "./repo-backup/${section}/html"
 
 if [[ "$last_id" == "1" ]] ; then
   echo "Download single issue"
-  curl -sL "https://github.com/${repo}/issues/1" > "1.html"
+  curl -sL "https://github.com/${repo}/${section}/1" > "1.html"
 else
-  echo "Download issues HTML sequentially"
+  echo "Download ${section} HTML sequentially"
+  entry_name=$section
+  if [[ "$section" == "pulls" ]] ; then entry_name=pull ; fi ;
   # See curl(1) and https://www.chronicle.com/blogs/profhacker/download-a-sequential-range-of-urls-with-curl/41055
-  curl -L "https://github.com/${repo}/issues/[1-${last_id}]" -o "#1.html" --limit-rate 10M 2>&1 | grep -E '^\['
-  echo "Done downloading issues HTML sequentially"
+  curl -L "https://github.com/${repo}/${entry_name}/[1-${last_id}]" -o "#1.html" --limit-rate 10M 2>&1 | grep -E '^\['
+  echo "Done downloading ${section} HTML sequentially"
 fi
 
 echo "Padding filenames with zeros"
@@ -28,8 +32,8 @@ done
 replace_url_by_asset_hash(){
   url="$1"
   hash=$(echo $url | sha1sum | awk '{printf $1}')
-  [ -e "./assets/${hash}" ] || {
-    curl -sL "$url" > "./assets/${hash}" || { echo "couldn't fetch $url and put it into ./assets/${hash}" && exit 1 ; }
+  [ -e "assets/${hash}" ] || {
+    curl -sL "$url" > "assets/${hash}" || { echo "couldn't fetch $url and put it into assets/${hash}" && exit 1 ; }
     sed -i "s|${url}|assets/${hash}\" data-original-url=\"${url}|g" *.html
   }
 }
@@ -45,6 +49,7 @@ sed -i 's/ integrity=/ data-integrity=/' *.html
 
 # Hidding some divs
 sed -i 's/ class="signup-prompt-bg/ style="display: none;" class="hidden signup-prompt-bg/' *.html
+sed -i 's/ class="signup-prompt/ style="display: none;" class="hidden signup-prompt-bg/' *.html
 sed -i 's/ class="flash flash-warn/ style="display: none;" class="hidden flash flash-warn/' *.html
 
 urls=$(cat *.html | grep '<img' | grep -v data-original-url | sed 's/.*src="//' | sed 's/".*//' | grep -e '\w' | uniq)
