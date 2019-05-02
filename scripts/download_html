@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 set -eu
 
 repo=$(git remote -v | grep origin | grep fetch | awk '{printf $2}' | sed 's|^.*:||' | sed 's|//github.com/||' | sed 's|\.git$||')
@@ -19,7 +19,7 @@ else
 fi
 
 echo "Padding filenames with zeros"
-for i in {1..$last_id}
+for i in $(seq 1 "$last_id")
 do
   padded_id=$(printf %04d $i)
   mv "${i}.html" "${padded_id}.html"
@@ -29,8 +29,8 @@ replace_url_by_asset_hash(){
   url="$1"
   hash=$(echo $url | sha1sum | awk '{printf $1}')
   [ -e "./assets/${hash}" ] || {
-    curl -sL "$url" > "./assets/${hash}" || { echo "couldn't fetch $url and put it into ./assets/${hash}" && exit 1 }
-    sed -i "s@${url}@assets/${hash}\" data-original-url=\"${url}@g" *.html
+    curl -sL "$url" > "./assets/${hash}" || { echo "couldn't fetch $url and put it into ./assets/${hash}" && exit 1 ; }
+    sed -i "s|${url}|assets/${hash}\" data-original-url=\"${url}|g" *.html
   }
 }
 
@@ -56,6 +56,7 @@ echo "$urls" | while read -r line ; do
   replace_url_by_asset_hash "$line"
   counter=$((counter+1))
   printf "\rReplaced images: ${counter}/${urls_count}    "
-done ;
+done;
 
-echo "\ndone"
+echo '
+done'
