@@ -25,6 +25,9 @@ do
   mv "${i}.html" "${padded_id}.html"
 done
 
+# Replace internal Github links by absolute links
+sed -i 's|href="/|href="https://github.com/|g' *.html
+
 replace_url_by_asset_hash(){
   url="$1"
   hash=$(echo $url | sha1sum | awk '{printf $1}')
