@@ -53,10 +53,9 @@ urls_count=$(echo "$urls" | wc -l)
 echo "Download images"
 counter=0
 echo "$urls" | while read -r line ; do
-  echo "replacing: $line"
   replace_url_by_asset_hash "$line"
   counter=$((counter+1))
-  printf "\rreplaced images: ${counter}/${urls_count}    "
+  printf "\rReplaced images: ${counter}/${urls_count}    "
 done ;
 
 echo "\ndone"
