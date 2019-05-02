@@ -35,7 +35,7 @@ const getLocalDataOrFetch = () => {
 }
 
 getLocalDataOrFetch()
-.then(() => console.log(green(`done downloading repo data`)))
+.then(() => console.log(green(`Done downloading JSON`)))
 .catch(err => {
   console.error(`[download_json] failed to getLocalDataOrFetch`, err)
   process.exit(1)
