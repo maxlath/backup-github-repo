@@ -3,9 +3,9 @@
 Backup all the issues of a github repo, including the comments, events, and labels, as JSON and as HTML.
 
 **Features**
-* generate a JSON file with all the issues
-* generate one HTML file per issue
-* download images locally to allow offline browsing
+* generate a JSON file with all the issues ([demo](https://github.com/maxlath/backup-github-issues/blob/master/demo/data.json))
+* generate one HTML file per issue ([demo](https://github.com/maxlath/backup-github-issues/tree/master/demo/html))
+* download CSS files and images locally to allow offline browsing ([demo](https://github.com/maxlath/backup-github-issues/tree/master/demo/html/assets))
 
 ## Install
 ```sh
