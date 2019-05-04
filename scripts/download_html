@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -eu
 
-# repository-name is defined in package.json
+# Executable defined in package.json
 repo=$(repository-name)
+token=$(github-token)
+
+authorized_curl(){
+  curl -H 'User-Agent: backup-github-repo' -H 'Authorization: token ${token}' $@
+}
 
 echo "repo: $repo"
 last_id=$(jd "./repo-backup/data.json" ._keys._last)
@@ -12,11 +17,11 @@ cd "./repo-backup/html"
 
 if [[ "$last_id" == "1" ]] ; then
   echo "Download single issue or pull request"
-  curl -sL "https://github.com/${repo}/issues/1" > "1.html"
+  authorized_curl -sL "https://github.com/${repo}/issues/1" > "1.html"
 else
   echo "Download issues and pull requests HTML sequentially"
   # See curl(1) and https://www.chronicle.com/blogs/profhacker/download-a-sequential-range-of-urls-with-curl/41055
-  curl -L "https://github.com/${repo}/issues/[1-${last_id}]" -o "#1.html" --limit-rate 10M 2>&1 | grep -E '^\['
+  authorized_curl -L "https://github.com/${repo}/issues/[1-${last_id}]" -o "#1.html" 2>&1 | grep -E '^\['
   echo "Done downloading issues and pull requests HTML sequentially"
 fi
 
@@ -34,7 +39,7 @@ replace_url_by_asset_hash(){
   url="$1"
   hash=$(echo $url | sha1sum | awk '{printf $1}')
   [ -e "assets/${hash}" ] || {
-    curl -sL "$url" > "assets/${hash}" || { echo "couldn't fetch $url and put it into assets/${hash}" && exit 1 ; }
+    authorized_curl -sL "$url" > "assets/${hash}" || { echo "couldn't fetch $url and put it into assets/${hash}" && exit 1 ; }
     sed -i "s|${url}|assets/${hash}\" data-original-url=\"${url}|g" *.html
   }
 }

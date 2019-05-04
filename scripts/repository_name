@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-console.log(require('../lib/repo_name.js'))
+console.log(require('../lib/repo_name'))

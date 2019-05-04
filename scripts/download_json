@@ -2,14 +2,8 @@
 Promise = require('bluebird')
 const writeFile = Promise.promisify(require('fs').writeFile)
 const path = require('path')
-const config = require('../lib/config')
+
 const { green, blue, grey } = require('chalk')
-
-if (typeof config.token !== 'string') {
-  require('../lib/init_token')()
-  process.exit(1)
-}
-
 const folderPath = path.join(process.cwd(), `./repo-backup`)
 const dataPath = path.join(process.cwd(), `./repo-backup/data.json`)
 console.log(grey(`data path: ${dataPath}`))
