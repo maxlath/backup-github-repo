@@ -37,17 +37,19 @@ sed -i 's|href="/|href="https://github.com/|g' *.html
 
 replace_url_by_asset_hash(){
   url="$1"
+  extension="${2:-}"
   hash=$(echo $url | sha1sum | awk '{printf $1}')
+  filename="assets/${hash}${extension}"
   [ -e "assets/${hash}" ] || {
-    authorized_curl -sL "$url" > "assets/${hash}" || { echo "couldn't fetch $url and put it into assets/${hash}" && exit 1 ; }
-    sed -i "s|${url}|assets/${hash}\" data-original-url=\"${url}|g" *.html
+    authorized_curl -sL "$url" > "$filename" || { echo "couldn't fetch $url and put it into $filename" && exit 1 ; }
+    sed -i "s|${url}|${filename}\" data-original-url=\"${url}|g" *.html
   }
 }
 
 echo "Download stylesheets"
 # cf https://stackoverflow.com/a/16318005/3324977
 cat 0001.html | grep '<link' | grep 'rel="stylesheet"' | sed 's/.*href="//' | sed 's/".*//' | while read -r line ;
-  do replace_url_by_asset_hash "$line" ;
+  do replace_url_by_asset_hash "$line" '.css' ;
 done ;
 
 # Preventing resources to be blocked by integrity checks
