@@ -37,7 +37,8 @@
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/labels/enhancement",
         "name": "enhancement",
         "color": "a2eeef",
-        "default": true
+        "default": true,
+        "description": "New feature or request"
       }
     ],
     "state": "closed",
@@ -50,7 +51,9 @@
     "updated_at": "2019-05-02T13:19:31Z",
     "closed_at": "2019-05-02T13:19:31Z",
     "author_association": "OWNER",
+    "active_lock_reason": null,
     "body": "this is a demo comment",
+    "performed_via_github_app": null,
     "events": [
       {
         "id": 2314474820,
@@ -83,7 +86,8 @@
         "label": {
           "name": "enhancement",
           "color": "a2eeef"
-        }
+        },
+        "performed_via_github_app": null
       },
       {
         "id": 2314475064,
@@ -112,7 +116,8 @@
         "event": "closed",
         "commit_id": null,
         "commit_url": null,
-        "created_at": "2019-05-02T13:19:31Z"
+        "created_at": "2019-05-02T13:19:31Z",
+        "performed_via_github_app": null
       }
     ]
   },
@@ -147,8 +152,27 @@
       "type": "User",
       "site_admin": false
     },
-    "labels": [],
-    "state": "open",
+    "labels": [
+      {
+        "id": 2547499125,
+        "node_id": "MDU6TGFiZWwyNTQ3NDk5MTI1",
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/labels/private%20repo",
+        "name": "private repo",
+        "color": "222222",
+        "default": false,
+        "description": ""
+      },
+      {
+        "id": 943796175,
+        "node_id": "MDU6TGFiZWw5NDM3OTYxNzU=",
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/labels/wontfix",
+        "name": "wontfix",
+        "color": "ffffff",
+        "default": true,
+        "description": "This will not be worked on"
+      }
+    ],
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [],
@@ -183,7 +207,8 @@
         "created_at": "2019-05-02T15:25:26Z",
         "updated_at": "2019-05-02T15:25:26Z",
         "author_association": "OWNER",
-        "body": "could it be that you didn't install the dependencies? [I forgot to mention it in the installation steps](https://github.com/maxlath/backup-github-issues/commit/9caa2f6de903c071462efb2be3bb904d4c9ae409)\r\n\r\nalso, errors during `./scripts/download_json` were not making the script exit with a non-zero code (fixed in 8b7f63d), which was making  `./scripts/download_html` fail to find `./issues/data.json`, so if you run the latest version, you might get a new error that might be more informative"
+        "body": "could it be that you didn't install the dependencies? [I forgot to mention it in the installation steps](https://github.com/maxlath/backup-github-issues/commit/9caa2f6de903c071462efb2be3bb904d4c9ae409)\r\n\r\nalso, errors during `./scripts/download_json` were not making the script exit with a non-zero code (fixed in 8b7f63d), which was making  `./scripts/download_html` fail to find `./issues/data.json`, so if you run the latest version, you might get a new error that might be more informative",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488723240",
@@ -214,7 +239,8 @@
         "created_at": "2019-05-02T15:40:20Z",
         "updated_at": "2019-05-02T15:40:20Z",
         "author_association": "NONE",
-        "body": "I ran `npm install` and re-ran `npm link` and am still getting that same error on the latest commit. Any other ideas on what could be happening, or maybe where I could add some debug to isolate?"
+        "body": "I ran `npm install` and re-ran `npm link` and am still getting that same error on the latest commit. Any other ideas on what could be happening, or maybe where I could add some debug to isolate?",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488723669",
@@ -245,7 +271,8 @@
         "created_at": "2019-05-02T15:41:28Z",
         "updated_at": "2019-05-02T15:41:28Z",
         "author_association": "NONE",
-        "body": "Here's a more complete log:\r\n\r\n```\r\nGet a new token at https://github.com/settings/tokens\r\nNo special permission required\r\nusing a token increases the number of API requests we can make, see https://developer.github.com/v3/#rate-limiting\r\nrepo: XYZ/ABC\r\nfs.js:125\r\n    throw err;\r\n    ^\r\n\r\nError: ENOENT: no such file or directory, open './issues/data.json'\r\n    at Object.openSync (fs.js:454:3)\r\n    at Object.readFileSync (fs.js:354:35)\r\n    at Object.<anonymous> (/Users/dustin/.nvm/versions/node/v12.1.0/lib/node_modules/jsondepth/lib/parse_arguments.js:10:26)\r\n    at Module._compile (internal/modules/cjs/loader.js:759:30)\r\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)\r\n    at Module.load (internal/modules/cjs/loader.js:628:32)\r\n    at Function.Module._load (internal/modules/cjs/loader.js:555:12)\r\n    at Module.require (internal/modules/cjs/loader.js:666:19)\r\n    at require (internal/modules/cjs/helpers.js:16:16)\r\n    at Object.<anonymous> (/Users/dustin/.nvm/versions/node/v12.1.0/lib/node_modules/jsondepth/bin/jsondepth:2:40)\r\n```\r\n\r\nDo I need to get a new token for this to work?"
+        "body": "Here's a more complete log:\r\n\r\n```\r\nGet a new token at https://github.com/settings/tokens\r\nNo special permission required\r\nusing a token increases the number of API requests we can make, see https://developer.github.com/v3/#rate-limiting\r\nrepo: XYZ/ABC\r\nfs.js:125\r\n    throw err;\r\n    ^\r\n\r\nError: ENOENT: no such file or directory, open './issues/data.json'\r\n    at Object.openSync (fs.js:454:3)\r\n    at Object.readFileSync (fs.js:354:35)\r\n    at Object.<anonymous> (/Users/dustin/.nvm/versions/node/v12.1.0/lib/node_modules/jsondepth/lib/parse_arguments.js:10:26)\r\n    at Module._compile (internal/modules/cjs/loader.js:759:30)\r\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)\r\n    at Module.load (internal/modules/cjs/loader.js:628:32)\r\n    at Function.Module._load (internal/modules/cjs/loader.js:555:12)\r\n    at Module.require (internal/modules/cjs/loader.js:666:19)\r\n    at require (internal/modules/cjs/helpers.js:16:16)\r\n    at Object.<anonymous> (/Users/dustin/.nvm/versions/node/v12.1.0/lib/node_modules/jsondepth/bin/jsondepth:2:40)\r\n```\r\n\r\nDo I need to get a new token for this to work?",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488740172",
@@ -276,7 +303,8 @@
         "created_at": "2019-05-02T16:27:43Z",
         "updated_at": "2019-05-02T16:27:43Z",
         "author_association": "OWNER",
-        "body": "It looks like your token can't be found in the config. It should look something like this:\r\n```js\r\n// /path/to/backup-github-issues/config/local.js\r\nmodule.exports = { token: '9a6055acdb6dc2e37a64fc1c4c2bc98c4bcdd58a' }\r\n```"
+        "body": "It looks like your token can't be found in the config. It should look something like this:\r\n```js\r\n// /path/to/backup-github-issues/config/local.js\r\nmodule.exports = { token: '9a6055acdb6dc2e37a64fc1c4c2bc98c4bcdd58a' }\r\n```",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488764517",
@@ -307,7 +335,8 @@
         "created_at": "2019-05-02T17:40:10Z",
         "updated_at": "2019-05-02T17:40:10Z",
         "author_association": "NONE",
-        "body": "Ah, I missed that. I somehow thought it would digest the current repo authentication. Sorry about that. Which permissions does the script need?\r\n\r\n![image](https://user-images.githubusercontent.com/7659306/57095001-cb8c7f00-6cdf-11e9-85b3-e60ee9928c17.png)\r\n"
+        "body": "Ah, I missed that. I somehow thought it would digest the current repo authentication. Sorry about that. Which permissions does the script need?\r\n\r\n![image](https://user-images.githubusercontent.com/7659306/57095001-cb8c7f00-6cdf-11e9-85b3-e60ee9928c17.png)\r\n",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488772882",
@@ -338,7 +367,8 @@
         "created_at": "2019-05-02T18:04:35Z",
         "updated_at": "2019-05-02T18:04:35Z",
         "author_association": "OWNER",
-        "body": "none, it's just used to be able to increase the quota of requests :)"
+        "body": "none, it's just used to be able to increase the quota of requests :)",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488778938",
@@ -369,7 +399,8 @@
         "created_at": "2019-05-02T18:22:44Z",
         "updated_at": "2019-05-02T18:22:44Z",
         "author_association": "NONE",
-        "body": "K. With the token (with no permissions) I get this now:\r\n\r\n```\r\nissues data path: /HIDDEN/issues/data.json\r\nrepo: HIDDEN/HIDDEN\r\n\r\n[download_json] failed to getLocalIssuesOrFetch Error: Not Found\r\n    at handleHttpErrorCode (/Users/dustin/GitHub/backup-github-issues/node_modules/bluereq/lib/promisified_request.js:28:15)\r\n    at Request._callback (/Users/dustin/GitHub/backup-github-issues/node_modules/bluereq/lib/promisified_request.js:21:9)\r\n    at Request.self.callback (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:185:22)\r\n    at Request.emit (events.js:196:13)\r\n    at Request.<anonymous> (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:1161:10)\r\n    at Request.emit (events.js:196:13)\r\n    at Gunzip.<anonymous> (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:1083:12)\r\n    at Object.onceWrapper (events.js:284:20)\r\n    at Gunzip.emit (events.js:201:15)\r\n    at endReadableNT (_stream_readable.js:1130:12)\r\n    at processTicksAndRejections (internal/process/task_queues.js:84:17) {\r\n  statusCode: 404,\r\n  statusMessage: 'Not Found',\r\n  headers: {\r\n    server: 'GitHub.com',\r\n    date: 'Thu, 02 May 2019 18:20:12 GMT',\r\n    'content-type': 'application/json; charset=utf-8',\r\n    'transfer-encoding': 'chunked',\r\n    connection: 'close',\r\n    status: '404 Not Found',\r\n    'x-ratelimit-limit': '5000',\r\n    'x-ratelimit-remaining': '4998',\r\n    'x-ratelimit-reset': '1556822344',\r\n    'x-oauth-scopes': '',\r\n    'x-accepted-oauth-scopes': 'repo',\r\n    'x-github-media-type': 'github.v3',\r\n    'access-control-expose-headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, ' +\r\n      'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, ' +\r\n      'X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, ' +\r\n      'X-GitHub-Media-Type',\r\n    'access-control-allow-origin': '*',\r\n    'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',\r\n    'x-frame-options': 'deny',\r\n    'x-content-type-options': 'nosniff',\r\n    'x-xss-protection': '1; mode=block',\r\n    'referrer-policy': 'origin-when-cross-origin, strict-origin-when-cross-origin',\r\n    'content-security-policy': \"default-src 'none'\",\r\n    'content-encoding': 'gzip',\r\n    'x-github-request-id': '9003:632C:6A9A5B:E9C3E0:5CCB34DC'\r\n  },\r\n  body: {\r\n    message: 'Not Found',\r\n    documentation_url: 'https://developer.github.com/v3/issues/#list-issues-for-a-repository'\r\n  },\r\n  url: 'https://api.github.com/repos/HIDDEN/HIDDEN/issues?per_page=100&state=all&page=1'\r\n}\r\n```\r\n\r\nAm I missing another part of the config?"
+        "body": "K. With the token (with no permissions) I get this now:\r\n\r\n```\r\nissues data path: /HIDDEN/issues/data.json\r\nrepo: HIDDEN/HIDDEN\r\n\r\n[download_json] failed to getLocalIssuesOrFetch Error: Not Found\r\n    at handleHttpErrorCode (/Users/dustin/GitHub/backup-github-issues/node_modules/bluereq/lib/promisified_request.js:28:15)\r\n    at Request._callback (/Users/dustin/GitHub/backup-github-issues/node_modules/bluereq/lib/promisified_request.js:21:9)\r\n    at Request.self.callback (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:185:22)\r\n    at Request.emit (events.js:196:13)\r\n    at Request.<anonymous> (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:1161:10)\r\n    at Request.emit (events.js:196:13)\r\n    at Gunzip.<anonymous> (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:1083:12)\r\n    at Object.onceWrapper (events.js:284:20)\r\n    at Gunzip.emit (events.js:201:15)\r\n    at endReadableNT (_stream_readable.js:1130:12)\r\n    at processTicksAndRejections (internal/process/task_queues.js:84:17) {\r\n  statusCode: 404,\r\n  statusMessage: 'Not Found',\r\n  headers: {\r\n    server: 'GitHub.com',\r\n    date: 'Thu, 02 May 2019 18:20:12 GMT',\r\n    'content-type': 'application/json; charset=utf-8',\r\n    'transfer-encoding': 'chunked',\r\n    connection: 'close',\r\n    status: '404 Not Found',\r\n    'x-ratelimit-limit': '5000',\r\n    'x-ratelimit-remaining': '4998',\r\n    'x-ratelimit-reset': '1556822344',\r\n    'x-oauth-scopes': '',\r\n    'x-accepted-oauth-scopes': 'repo',\r\n    'x-github-media-type': 'github.v3',\r\n    'access-control-expose-headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, ' +\r\n      'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, ' +\r\n      'X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, ' +\r\n      'X-GitHub-Media-Type',\r\n    'access-control-allow-origin': '*',\r\n    'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',\r\n    'x-frame-options': 'deny',\r\n    'x-content-type-options': 'nosniff',\r\n    'x-xss-protection': '1; mode=block',\r\n    'referrer-policy': 'origin-when-cross-origin, strict-origin-when-cross-origin',\r\n    'content-security-policy': \"default-src 'none'\",\r\n    'content-encoding': 'gzip',\r\n    'x-github-request-id': '9003:632C:6A9A5B:E9C3E0:5CCB34DC'\r\n  },\r\n  body: {\r\n    message: 'Not Found',\r\n    documentation_url: 'https://developer.github.com/v3/issues/#list-issues-for-a-repository'\r\n  },\r\n  url: 'https://api.github.com/repos/HIDDEN/HIDDEN/issues?per_page=100&state=all&page=1'\r\n}\r\n```\r\n\r\nAm I missing another part of the config?",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488779897",
@@ -400,7 +431,8 @@
         "created_at": "2019-05-02T18:25:31Z",
         "updated_at": "2019-05-02T18:25:31Z",
         "author_association": "OWNER",
-        "body": "is the repo name correct in the url `https://api.github.com/repos/HIDDEN/HIDDEN/issues?per_page=100&state=all&page=1`? there might have been a problem with the parsing of the repo name? or maybe your repo isn't public and something is different than for public repos?"
+        "body": "is the repo name correct in the url `https://api.github.com/repos/HIDDEN/HIDDEN/issues?per_page=100&state=all&page=1`? there might have been a problem with the parsing of the repo name? or maybe your repo isn't public and something is different than for public repos?",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488781150",
@@ -431,7 +463,8 @@
         "created_at": "2019-05-02T18:29:15Z",
         "updated_at": "2019-05-02T18:29:15Z",
         "author_association": "NONE",
-        "body": "The repo I'm trying to backup is private. Is that okay?\r\n\r\nIt's reported correctly here:\r\n\r\n```\r\nissues data path: /Users/dustin/GitHub/HIDDEN/issues/data.json\r\nrepo: HIDDEN/HIDDEN\r\n```\r\n\r\nBut is incorrect here:\r\n\r\n```\r\nbody: {\r\n    message: 'Not Found',\r\n    documentation_url: 'https://developer.github.com/v3/issues/#list-issues-for-a-repository'\r\n  },\r\n  url: 'https://api.github.com/repos/HIDDEN/HIDDEN%0A/issues?per_page=100&state=all&page=1'\r\n```\r\n\r\nIe. The `url` has `%0A` appended to the end of the correct repo name."
+        "body": "The repo I'm trying to backup is private. Is that okay?\r\n\r\nIt's reported correctly here:\r\n\r\n```\r\nissues data path: /Users/dustin/GitHub/HIDDEN/issues/data.json\r\nrepo: HIDDEN/HIDDEN\r\n```\r\n\r\nBut is incorrect here:\r\n\r\n```\r\nbody: {\r\n    message: 'Not Found',\r\n    documentation_url: 'https://developer.github.com/v3/issues/#list-issues-for-a-repository'\r\n  },\r\n  url: 'https://api.github.com/repos/HIDDEN/HIDDEN%0A/issues?per_page=100&state=all&page=1'\r\n```\r\n\r\nIe. The `url` has `%0A` appended to the end of the correct repo name.",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488783566",
@@ -462,7 +495,8 @@
         "created_at": "2019-05-02T18:36:40Z",
         "updated_at": "2019-05-02T18:36:40Z",
         "author_association": "OWNER",
-        "body": "could you post an anonymized output of the command `git remote -v`? it might be a parsing error from [this line](https://github.com/maxlath/backup-github-issues/blob/f4f0242/scripts/download_html#L4)"
+        "body": "could you post an anonymized output of the command `git remote -v`? it might be a parsing error from [this line](https://github.com/maxlath/backup-github-issues/blob/f4f0242/scripts/download_html#L4)",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488784344",
@@ -493,7 +527,8 @@
         "created_at": "2019-05-02T18:39:02Z",
         "updated_at": "2019-05-02T18:39:02Z",
         "author_association": "NONE",
-        "body": "Sure thing:\r\n\r\n```\r\norigin\thttps://github.com/HIDDEN/HIDDEN.git (fetch)\r\norigin\thttps://github.com/HIDDEN/HIDDEN.git (push)\r\n```"
+        "body": "Sure thing:\r\n\r\n```\r\norigin\thttps://github.com/HIDDEN/HIDDEN.git (fetch)\r\norigin\thttps://github.com/HIDDEN/HIDDEN.git (push)\r\n```",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488784702",
@@ -524,7 +559,8 @@
         "created_at": "2019-05-02T18:40:09Z",
         "updated_at": "2019-05-02T18:40:09Z",
         "author_association": "NONE",
-        "body": "Seems to be something else. I get this same error when trying to export the backup-github-issues repo:\r\n\r\n```\r\nissues data path: /Users/dustin/GitHub/backup-github-issues/issues/data.json\r\nrepo: maxlath/backup-github-issues\r\n\r\n[download_json] failed to getLocalIssuesOrFetch Error: Not Found\r\n    at handleHttpErrorCode (/Users/dustin/GitHub/backup-github-issues/node_modules/bluereq/lib/promisified_request.js:28:15)\r\n    at Request._callback (/Users/dustin/GitHub/backup-github-issues/node_modules/bluereq/lib/promisified_request.js:21:9)\r\n    at Request.self.callback (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:185:22)\r\n    at Request.emit (events.js:196:13)\r\n    at Request.<anonymous> (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:1161:10)\r\n    at Request.emit (events.js:196:13)\r\n    at Gunzip.<anonymous> (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:1083:12)\r\n    at Object.onceWrapper (events.js:284:20)\r\n    at Gunzip.emit (events.js:201:15)\r\n    at endReadableNT (_stream_readable.js:1130:12)\r\n    at processTicksAndRejections (internal/process/task_queues.js:84:17) {\r\n  statusCode: 404,\r\n  statusMessage: 'Not Found',\r\n  headers: {\r\n    server: 'GitHub.com',\r\n    date: 'Thu, 02 May 2019 18:39:26 GMT',\r\n    'content-type': 'application/json; charset=utf-8',\r\n    'transfer-encoding': 'chunked',\r\n    connection: 'close',\r\n    status: '404 Not Found',\r\n    'x-ratelimit-limit': '5000',\r\n    'x-ratelimit-remaining': '4999',\r\n    'x-ratelimit-reset': '1556825966',\r\n    'x-oauth-scopes': '',\r\n    'x-accepted-oauth-scopes': 'repo',\r\n    'x-github-media-type': 'github.v3',\r\n    'access-control-expose-headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, ' +\r\n      'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, ' +\r\n      'X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, ' +\r\n      'X-GitHub-Media-Type',\r\n    'access-control-allow-origin': '*',\r\n    'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',\r\n    'x-frame-options': 'deny',\r\n    'x-content-type-options': 'nosniff',\r\n    'x-xss-protection': '1; mode=block',\r\n    'referrer-policy': 'origin-when-cross-origin, strict-origin-when-cross-origin',\r\n    'content-security-policy': \"default-src 'none'\",\r\n    'content-encoding': 'gzip',\r\n    'x-github-request-id': '8642:08FB:413222:9FF7AC:5CCB395E'\r\n  },\r\n  body: {\r\n    message: 'Not Found',\r\n    documentation_url: 'https://developer.github.com/v3/issues/#list-issues-for-a-repository'\r\n  },\r\n  url: 'https://api.github.com/repos/maxlath/backup-github-issues%0A/issues?per_page=100&state=all&page=1'\r\n}\r\n```"
+        "body": "Seems to be something else. I get this same error when trying to export the backup-github-issues repo:\r\n\r\n```\r\nissues data path: /Users/dustin/GitHub/backup-github-issues/issues/data.json\r\nrepo: maxlath/backup-github-issues\r\n\r\n[download_json] failed to getLocalIssuesOrFetch Error: Not Found\r\n    at handleHttpErrorCode (/Users/dustin/GitHub/backup-github-issues/node_modules/bluereq/lib/promisified_request.js:28:15)\r\n    at Request._callback (/Users/dustin/GitHub/backup-github-issues/node_modules/bluereq/lib/promisified_request.js:21:9)\r\n    at Request.self.callback (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:185:22)\r\n    at Request.emit (events.js:196:13)\r\n    at Request.<anonymous> (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:1161:10)\r\n    at Request.emit (events.js:196:13)\r\n    at Gunzip.<anonymous> (/Users/dustin/GitHub/backup-github-issues/node_modules/request/request.js:1083:12)\r\n    at Object.onceWrapper (events.js:284:20)\r\n    at Gunzip.emit (events.js:201:15)\r\n    at endReadableNT (_stream_readable.js:1130:12)\r\n    at processTicksAndRejections (internal/process/task_queues.js:84:17) {\r\n  statusCode: 404,\r\n  statusMessage: 'Not Found',\r\n  headers: {\r\n    server: 'GitHub.com',\r\n    date: 'Thu, 02 May 2019 18:39:26 GMT',\r\n    'content-type': 'application/json; charset=utf-8',\r\n    'transfer-encoding': 'chunked',\r\n    connection: 'close',\r\n    status: '404 Not Found',\r\n    'x-ratelimit-limit': '5000',\r\n    'x-ratelimit-remaining': '4999',\r\n    'x-ratelimit-reset': '1556825966',\r\n    'x-oauth-scopes': '',\r\n    'x-accepted-oauth-scopes': 'repo',\r\n    'x-github-media-type': 'github.v3',\r\n    'access-control-expose-headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, ' +\r\n      'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, ' +\r\n      'X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, ' +\r\n      'X-GitHub-Media-Type',\r\n    'access-control-allow-origin': '*',\r\n    'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',\r\n    'x-frame-options': 'deny',\r\n    'x-content-type-options': 'nosniff',\r\n    'x-xss-protection': '1; mode=block',\r\n    'referrer-policy': 'origin-when-cross-origin, strict-origin-when-cross-origin',\r\n    'content-security-policy': \"default-src 'none'\",\r\n    'content-encoding': 'gzip',\r\n    'x-github-request-id': '8642:08FB:413222:9FF7AC:5CCB395E'\r\n  },\r\n  body: {\r\n    message: 'Not Found',\r\n    documentation_url: 'https://developer.github.com/v3/issues/#list-issues-for-a-repository'\r\n  },\r\n  url: 'https://api.github.com/repos/maxlath/backup-github-issues%0A/issues?per_page=100&state=all&page=1'\r\n}\r\n```",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488785278",
@@ -555,7 +591,8 @@
         "created_at": "2019-05-02T18:41:56Z",
         "updated_at": "2019-05-02T18:42:16Z",
         "author_association": "NONE",
-        "body": "Ah, it doe seem like it's the `%0A` line. If I go to https://api.github.com/repos/maxlath/backup-github-issues/issues?per_page=100&state=all&page=1 in a browser, I see results.\r\n\r\nBut if I go to https://api.github.com/repos/maxlath/backup-github-issues%0A/issues?per_page=100&state=all&page=1\r\n \r\nI get:\r\n\r\n```\r\n{\r\n  \"message\": \"Not Found\",\r\n  \"documentation_url\": \"https://developer.github.com/v3/issues/#list-issues-for-a-repository\"\r\n}\r\n```"
+        "body": "Ah, it doe seem like it's the `%0A` line. If I go to https://api.github.com/repos/maxlath/backup-github-issues/issues?per_page=100&state=all&page=1 in a browser, I see results.\r\n\r\nBut if I go to https://api.github.com/repos/maxlath/backup-github-issues%0A/issues?per_page=100&state=all&page=1\r\n \r\nI get:\r\n\r\n```\r\n{\r\n  \"message\": \"Not Found\",\r\n  \"documentation_url\": \"https://developer.github.com/v3/issues/#list-issues-for-a-repository\"\r\n}\r\n```",
+        "performed_via_github_app": null
       },
       {
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/488785782",
@@ -586,15 +623,531 @@
         "created_at": "2019-05-02T18:43:26Z",
         "updated_at": "2019-05-02T18:43:26Z",
         "author_association": "NONE",
-        "body": "And to be clearer, my repo name looks like this: `LowerCaseUpperCase-Unity-SDK` - Maybe it's the dashes..."
+        "body": "And to be clearer, my repo name looks like this: `LowerCaseUpperCase-Unity-SDK` - Maybe it's the dashes...",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/489058750",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-489058750",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 489058750,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ4OTA1ODc1MA==",
+        "user": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-03T10:57:53Z",
+        "updated_at": "2019-05-03T10:57:53Z",
+        "author_association": "OWNER",
+        "body": "e041302 might solve this issue, trying to use a consistent repository name parser, can you give it a try?",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/489082999",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-489082999",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 489082999,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ4OTA4Mjk5OQ==",
+        "user": {
+          "login": "dustinkerstein",
+          "id": 7659306,
+          "node_id": "MDQ6VXNlcjc2NTkzMDY=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/7659306?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dustinkerstein",
+          "html_url": "https://github.com/dustinkerstein",
+          "followers_url": "https://api.github.com/users/dustinkerstein/followers",
+          "following_url": "https://api.github.com/users/dustinkerstein/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dustinkerstein/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dustinkerstein/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dustinkerstein/subscriptions",
+          "organizations_url": "https://api.github.com/users/dustinkerstein/orgs",
+          "repos_url": "https://api.github.com/users/dustinkerstein/repos",
+          "events_url": "https://api.github.com/users/dustinkerstein/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dustinkerstein/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-03T12:45:47Z",
+        "updated_at": "2019-05-03T12:45:47Z",
+        "author_association": "NONE",
+        "body": "That fixes the issue for public repos (ie. your backup-github-repo) and exports all of the issues successfully, but there is a new issue with private repos. After adding additional permissions to the token (not sure which one yet specifically - but adding all permissions does fix it) to get past the `404`, it appears to work correctly:\r\n\r\n```\r\ndata path: /Users/dustin/GitHub/HIDDENREPO/repo-backup/data.json\r\nrepo: HIDDENAUTHOR/HIDDENREPO\r\nentry: 13\r\nadding comments, events, and labels: 13/13\r\ndone\r\nindexing issue by number\r\nDone downloading JSON\r\nrepo: HIDDENAUTHOR/HIDDENREPO\r\nentries: 13\r\nDownload issues and pull requests HTML sequentially\r\n[1/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/1 --> 1.html\r\n[2/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/2 --> 2.html\r\n[3/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/3 --> 3.html\r\n[4/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/4 --> 4.html\r\n[5/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/5 --> 5.html\r\n[6/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/6 --> 6.html\r\n[7/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/7 --> 7.html\r\n[8/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/8 --> 8.html\r\n[9/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/9 --> 9.html\r\n[10/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/10 --> 10.html\r\n[11/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/11 --> 11.html\r\n[12/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/12 --> 12.html\r\n[13/13]: https://github.com/HIDDENAUTHOR/HIDDENREPO/issues/13 --> 13.html\r\nDone downloading issues and pull requests HTML sequentially\r\nPadding filenames with zeros\r\nsed: 1: \"0001.html\": invalid command code .\r\n```\r\n\r\nBut then actually opening the html files shows `Not Found`:\r\n\r\n![image](https://user-images.githubusercontent.com/7659306/57138026-933c7d80-6d7f-11e9-8db6-bdbe173df9c6.png)\r\n\r\n\r\nFYI, the `sed` error/warning shows even on successful exports of public repos and doesn't appear to have any negative effect:\r\n\r\n```\r\nDone downloading issues and pull requests HTML sequentially\r\nPadding filenames with zeros\r\nsed: 1: \"0001.html\": invalid command code .\r\n```",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/489084386",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-489084386",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 489084386,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ4OTA4NDM4Ng==",
+        "user": {
+          "login": "dustinkerstein",
+          "id": 7659306,
+          "node_id": "MDQ6VXNlcjc2NTkzMDY=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/7659306?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dustinkerstein",
+          "html_url": "https://github.com/dustinkerstein",
+          "followers_url": "https://api.github.com/users/dustinkerstein/followers",
+          "following_url": "https://api.github.com/users/dustinkerstein/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dustinkerstein/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dustinkerstein/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dustinkerstein/subscriptions",
+          "organizations_url": "https://api.github.com/users/dustinkerstein/orgs",
+          "repos_url": "https://api.github.com/users/dustinkerstein/repos",
+          "events_url": "https://api.github.com/users/dustinkerstein/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dustinkerstein/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-03T12:51:08Z",
+        "updated_at": "2019-05-03T12:51:08Z",
+        "author_association": "NONE",
+        "body": "It looks like the `curl` to actually get the issues isn't using the auth token in the header:\r\n\r\n`curl -L \"https://github.com/${repo}/issues/[1-${last_id}]\" -o \"#1.html\" --limit-rate 10M 2>&1 | grep -E '^\\['`\r\n",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/489309123",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-489309123",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 489309123,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ4OTMwOTEyMw==",
+        "user": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-04T09:07:07Z",
+        "updated_at": "2019-05-04T09:07:07Z",
+        "author_association": "OWNER",
+        "body": "* on tokens authorizations: could you try with different authorizations so that the required authorizations for private repos can be added to the readme? (I don't have private repos)\r\n* on the `sed` warning: could it be due to a [difference in `sed` between Linux and (what I assume you have) MacOS](https://unix.stackexchange.com/questions/13711/differences-between-sed-on-mac-osx-and-other-standard-sed)\r\n* on curl with auth token: should have been fixed by e2ee0ae",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/489322966",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-489322966",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 489322966,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ4OTMyMjk2Ng==",
+        "user": {
+          "login": "dustinkerstein",
+          "id": 7659306,
+          "node_id": "MDQ6VXNlcjc2NTkzMDY=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/7659306?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dustinkerstein",
+          "html_url": "https://github.com/dustinkerstein",
+          "followers_url": "https://api.github.com/users/dustinkerstein/followers",
+          "following_url": "https://api.github.com/users/dustinkerstein/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dustinkerstein/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dustinkerstein/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dustinkerstein/subscriptions",
+          "organizations_url": "https://api.github.com/users/dustinkerstein/orgs",
+          "repos_url": "https://api.github.com/users/dustinkerstein/repos",
+          "events_url": "https://api.github.com/users/dustinkerstein/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dustinkerstein/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-04T12:33:13Z",
+        "updated_at": "2019-05-04T12:33:13Z",
+        "author_association": "NONE",
+        "body": "It looks like this is required:\r\n\r\n![image](https://user-images.githubusercontent.com/7659306/57178858-f6441800-6e44-11e9-8d3f-ebca64ba0950.png)\r\n\r\nBut I am still getting the same `Not Found` results in the html files.\r\n\r\nI tried hacking in the other token curl approach since I'm not using an organization:\r\n\r\n```\r\nauthorized_curl(){\r\n  curl -u 'username:${token}' $@\r\n}\r\n```\r\n\r\nBut that also didn't work.\r\n\r\nAnd yep, I am using OSX.",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/490253275",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-490253275",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 490253275,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ5MDI1MzI3NQ==",
+        "user": {
+          "login": "dustinkerstein",
+          "id": 7659306,
+          "node_id": "MDQ6VXNlcjc2NTkzMDY=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/7659306?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dustinkerstein",
+          "html_url": "https://github.com/dustinkerstein",
+          "followers_url": "https://api.github.com/users/dustinkerstein/followers",
+          "following_url": "https://api.github.com/users/dustinkerstein/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dustinkerstein/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dustinkerstein/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dustinkerstein/subscriptions",
+          "organizations_url": "https://api.github.com/users/dustinkerstein/orgs",
+          "repos_url": "https://api.github.com/users/dustinkerstein/repos",
+          "events_url": "https://api.github.com/users/dustinkerstein/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dustinkerstein/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-07T20:59:50Z",
+        "updated_at": "2019-05-07T20:59:50Z",
+        "author_association": "NONE",
+        "body": "I just invited you to a test private repo - https://github.com/dustinkerstein/private-repo-test - Let me know if you're not able to replicate there.",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/490982839",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-490982839",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 490982839,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ5MDk4MjgzOQ==",
+        "user": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-09T16:53:49Z",
+        "updated_at": "2019-05-09T16:53:49Z",
+        "author_association": "OWNER",
+        "body": "was able to replace the issue from the private repo, indeed you can't just get issues html from the usual address\r\n```sh\r\ncurl -H 'Authorization: token ${token}' https://github.com/dustinkerstein/private-repo-test/issues/1\r\n```\r\nI can't think of another way to get that html, but if you do find a way, feel welcome to open a PR. meanwhile, I will update the readme to precise that issues HTML download isn't supported for private repos",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/490998182",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-490998182",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 490998182,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ5MDk5ODE4Mg==",
+        "user": {
+          "login": "dustinkerstein",
+          "id": 7659306,
+          "node_id": "MDQ6VXNlcjc2NTkzMDY=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/7659306?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dustinkerstein",
+          "html_url": "https://github.com/dustinkerstein",
+          "followers_url": "https://api.github.com/users/dustinkerstein/followers",
+          "following_url": "https://api.github.com/users/dustinkerstein/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dustinkerstein/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dustinkerstein/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dustinkerstein/subscriptions",
+          "organizations_url": "https://api.github.com/users/dustinkerstein/orgs",
+          "repos_url": "https://api.github.com/users/dustinkerstein/repos",
+          "events_url": "https://api.github.com/users/dustinkerstein/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dustinkerstein/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-09T17:39:10Z",
+        "updated_at": "2019-05-09T17:39:10Z",
+        "author_association": "NONE",
+        "body": "These both appear to work:\r\n\r\n```\r\ncurl -H 'Authorization: token TOKEN' https://api.github.com/repos/dustinkerstein/private-repo-test/issues/1\r\ncurl -u username:TOKEN https://api.github.com/repos/dustinkerstein/private-repo-test/issues/1\r\n```\r\n\r\nI think you just needed the `api` in the url.",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/491002579",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-491002579",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 491002579,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ5MTAwMjU3OQ==",
+        "user": {
+          "login": "dustinkerstein",
+          "id": 7659306,
+          "node_id": "MDQ6VXNlcjc2NTkzMDY=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/7659306?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dustinkerstein",
+          "html_url": "https://github.com/dustinkerstein",
+          "followers_url": "https://api.github.com/users/dustinkerstein/followers",
+          "following_url": "https://api.github.com/users/dustinkerstein/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dustinkerstein/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dustinkerstein/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dustinkerstein/subscriptions",
+          "organizations_url": "https://api.github.com/users/dustinkerstein/orgs",
+          "repos_url": "https://api.github.com/users/dustinkerstein/repos",
+          "events_url": "https://api.github.com/users/dustinkerstein/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dustinkerstein/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-09T17:52:24Z",
+        "updated_at": "2019-05-09T17:52:24Z",
+        "author_association": "NONE",
+        "body": "Sorry, it also needs `repos` in the url like this:\r\n\r\n`authorized_curl -L \"https://api.github.com/repos/${repo}/issues/[1-${last_id}]\" -o \"#1.html\" 2>&1 | grep -E '^\\['`\r\n\r\nThen I also for some reason had to hardcode the token as I it was still complaining about credentials. After that, I was able to get it to output on my desired repo, but for some reason I was still seeing issues pulling from the new private test repo. \r\n\r\nFurther, the output is now in a different format so it's not parsing correctly. Are you able to get those commands above working?",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/491003232",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-491003232",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 491003232,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ5MTAwMzIzMg==",
+        "user": {
+          "login": "dustinkerstein",
+          "id": 7659306,
+          "node_id": "MDQ6VXNlcjc2NTkzMDY=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/7659306?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dustinkerstein",
+          "html_url": "https://github.com/dustinkerstein",
+          "followers_url": "https://api.github.com/users/dustinkerstein/followers",
+          "following_url": "https://api.github.com/users/dustinkerstein/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dustinkerstein/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dustinkerstein/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dustinkerstein/subscriptions",
+          "organizations_url": "https://api.github.com/users/dustinkerstein/orgs",
+          "repos_url": "https://api.github.com/users/dustinkerstein/repos",
+          "events_url": "https://api.github.com/users/dustinkerstein/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dustinkerstein/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-09T17:54:11Z",
+        "updated_at": "2019-05-09T17:54:11Z",
+        "author_association": "NONE",
+        "body": "You should be able to see this working in the browser here with this url - `https://api.github.com/repos/dustinkerstein/private-repo-test/issues/1?access_token=TOKEN`",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/491005075",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-491005075",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 491005075,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ5MTAwNTA3NQ==",
+        "user": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-09T17:59:36Z",
+        "updated_at": "2019-05-09T17:59:36Z",
+        "author_association": "OWNER",
+        "body": "sorry, I won't work further on supporting private repos - this tool is low on my priority list and my use-case is covered - but can take time to review and merge PRs",
+        "performed_via_github_app": null
+      },
+      {
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/comments/491007194",
+        "html_url": "https://github.com/maxlath/backup-github-repo/issues/2#issuecomment-491007194",
+        "issue_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/2",
+        "id": 491007194,
+        "node_id": "MDEyOklzc3VlQ29tbWVudDQ5MTAwNzE5NA==",
+        "user": {
+          "login": "dustinkerstein",
+          "id": 7659306,
+          "node_id": "MDQ6VXNlcjc2NTkzMDY=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/7659306?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/dustinkerstein",
+          "html_url": "https://github.com/dustinkerstein",
+          "followers_url": "https://api.github.com/users/dustinkerstein/followers",
+          "following_url": "https://api.github.com/users/dustinkerstein/following{/other_user}",
+          "gists_url": "https://api.github.com/users/dustinkerstein/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/dustinkerstein/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/dustinkerstein/subscriptions",
+          "organizations_url": "https://api.github.com/users/dustinkerstein/orgs",
+          "repos_url": "https://api.github.com/users/dustinkerstein/repos",
+          "events_url": "https://api.github.com/users/dustinkerstein/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/dustinkerstein/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "created_at": "2019-05-09T18:06:02Z",
+        "updated_at": "2019-05-09T18:06:02Z",
+        "author_association": "NONE",
+        "body": "Ok. Thanks. It does look like this json API approach would be a bit more work to parse.",
+        "performed_via_github_app": null
       }
     ],
     "created_at": "2019-05-02T14:30:53Z",
-    "updated_at": "2019-05-02T18:43:26Z",
-    "closed_at": null,
+    "updated_at": "2020-12-01T09:29:06Z",
+    "closed_at": "2020-12-01T09:29:06Z",
     "author_association": "NONE",
+    "active_lock_reason": null,
     "body": "Any idea what could be causing this error? FYI, I did have to install `jsondepth` globally in order for the `jd` command to work.\r\n\r\n```\r\nfs.js:125\r\n    throw err;\r\n    ^\r\n\r\nError: ENOENT: no such file or directory, open './issues/data.json'\r\n    at Object.openSync (fs.js:454:3)\r\n    at Object.readFileSync (fs.js:354:35)\r\n    at Object.<anonymous> (/Users/dustin/.nvm/versions/node/v12.1.0/lib/node_modules/jsondepth/lib/parse_arguments.js:10:26)\r\n    at Module._compile (internal/modules/cjs/loader.js:759:30)\r\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:770:10)\r\n    at Module.load (internal/modules/cjs/loader.js:628:32)\r\n    at Function.Module._load (internal/modules/cjs/loader.js:555:12)\r\n    at Module.require (internal/modules/cjs/loader.js:666:19)\r\n    at require (internal/modules/cjs/helpers.js:16:16)\r\n    at Object.<anonymous> (/Users/dustin/.nvm/versions/node/v12.1.0/lib/node_modules/jsondepth/bin/jsondepth:2:40)\r\n```",
-    "events": []
+    "performed_via_github_app": null,
+    "events": [
+      {
+        "id": 2318928120,
+        "node_id": "MDE1OlJlZmVyZW5jZWRFdmVudDIzMTg5MjgxMjA=",
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/events/2318928120",
+        "actor": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "referenced",
+        "commit_id": "e2ee0ae0967ec18958c6ebee0889881aaa6bc49a",
+        "commit_url": "https://api.github.com/repos/maxlath/backup-github-repo/commits/e2ee0ae0967ec18958c6ebee0889881aaa6bc49a",
+        "created_at": "2019-05-04T09:07:07Z",
+        "performed_via_github_app": null
+      },
+      {
+        "id": 4056066675,
+        "node_id": "MDEyOkxhYmVsZWRFdmVudDQwNTYwNjY2NzU=",
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/events/4056066675",
+        "actor": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "labeled",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2020-12-01T09:28:59Z",
+        "label": {
+          "name": "private repo",
+          "color": "222222"
+        },
+        "performed_via_github_app": null
+      },
+      {
+        "id": 4056066677,
+        "node_id": "MDEyOkxhYmVsZWRFdmVudDQwNTYwNjY2Nzc=",
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/events/4056066677",
+        "actor": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "labeled",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2020-12-01T09:28:59Z",
+        "label": {
+          "name": "wontfix",
+          "color": "ffffff"
+        },
+        "performed_via_github_app": null
+      },
+      {
+        "id": 4056067419,
+        "node_id": "MDExOkNsb3NlZEV2ZW50NDA1NjA2NzQxOQ==",
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/events/4056067419",
+        "actor": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "closed",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2020-12-01T09:29:06Z",
+        "performed_via_github_app": null
+      }
+    ]
   },
   "3": {
     "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/3",
@@ -634,19 +1187,21 @@
         "url": "https://api.github.com/repos/maxlath/backup-github-repo/labels/enhancement",
         "name": "enhancement",
         "color": "a2eeef",
-        "default": true
+        "default": true,
+        "description": "New feature or request"
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [],
     "milestone": null,
     "comments": [],
     "created_at": "2019-05-02T16:42:12Z",
-    "updated_at": "2019-05-02T16:42:12Z",
-    "closed_at": null,
+    "updated_at": "2019-05-03T07:15:36Z",
+    "closed_at": "2019-05-03T07:15:30Z",
     "author_association": "OWNER",
+    "active_lock_reason": null,
     "pull_request": {
       "url": "https://api.github.com/repos/maxlath/backup-github-repo/pulls/3",
       "html_url": "https://github.com/maxlath/backup-github-repo/pull/3",
@@ -654,6 +1209,7 @@
       "patch_url": "https://github.com/maxlath/backup-github-repo/pull/3.patch"
     },
     "body": "",
+    "performed_via_github_app": null,
     "events": [
       {
         "id": 2315076232,
@@ -686,8 +1242,116 @@
         "label": {
           "name": "enhancement",
           "color": "a2eeef"
-        }
+        },
+        "performed_via_github_app": null
+      },
+      {
+        "id": 2316557490,
+        "node_id": "MDExOkNsb3NlZEV2ZW50MjMxNjU1NzQ5MA==",
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/events/2316557490",
+        "actor": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "closed",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2019-05-03T07:15:30Z",
+        "performed_via_github_app": null
+      },
+      {
+        "id": 2316557703,
+        "node_id": "MDE5OkhlYWRSZWZEZWxldGVkRXZlbnQyMzE2NTU3NzAz",
+        "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/events/2316557703",
+        "actor": {
+          "login": "maxlath",
+          "id": 1596934,
+          "node_id": "MDQ6VXNlcjE1OTY5MzQ=",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/1596934?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/maxlath",
+          "html_url": "https://github.com/maxlath",
+          "followers_url": "https://api.github.com/users/maxlath/followers",
+          "following_url": "https://api.github.com/users/maxlath/following{/other_user}",
+          "gists_url": "https://api.github.com/users/maxlath/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/maxlath/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/maxlath/subscriptions",
+          "organizations_url": "https://api.github.com/users/maxlath/orgs",
+          "repos_url": "https://api.github.com/users/maxlath/repos",
+          "events_url": "https://api.github.com/users/maxlath/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/maxlath/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "event": "head_ref_deleted",
+        "commit_id": null,
+        "commit_url": null,
+        "created_at": "2019-05-03T07:15:36Z",
+        "performed_via_github_app": null
       }
     ]
+  },
+  "4": {
+    "url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/4",
+    "repository_url": "https://api.github.com/repos/maxlath/backup-github-repo",
+    "labels_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/4/labels{/name}",
+    "comments_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/4/comments",
+    "events_url": "https://api.github.com/repos/maxlath/backup-github-repo/issues/4/events",
+    "html_url": "https://github.com/maxlath/backup-github-repo/issues/4",
+    "id": 753793091,
+    "node_id": "MDU6SXNzdWU3NTM3OTMwOTE=",
+    "number": 4,
+    "title": "jd: command not found",
+    "user": {
+      "login": "mnpenner",
+      "id": 1112998,
+      "node_id": "MDQ6VXNlcjExMTI5OTg=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1112998?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mnpenner",
+      "html_url": "https://github.com/mnpenner",
+      "followers_url": "https://api.github.com/users/mnpenner/followers",
+      "following_url": "https://api.github.com/users/mnpenner/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mnpenner/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mnpenner/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mnpenner/subscriptions",
+      "organizations_url": "https://api.github.com/users/mnpenner/orgs",
+      "repos_url": "https://api.github.com/users/mnpenner/repos",
+      "events_url": "https://api.github.com/users/mnpenner/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mnpenner/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [],
+    "milestone": null,
+    "comments": [],
+    "created_at": "2020-11-30T20:51:46Z",
+    "updated_at": "2020-11-30T20:51:46Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "active_lock_reason": null,
+    "body": "First off, you rock!\r\n\r\nThis is the least fuss issue backup tool I've found so far. Others require you to set up databases and hosts and all kinds of junk.\r\n\r\nIt seems to have produced a nice `data.json` file but the last thing it said was\r\n\r\n> /usr/bin/download-github-repo-html: line 13: jd: command not found\r\n\r\nWhat's `jd`? Is the backup incomplete? What else does it need to do? How might one install `jd` on Ubuntu?\r\n\r\n",
+    "performed_via_github_app": null,
+    "events": []
   }
 }
