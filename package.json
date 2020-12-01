@@ -32,8 +32,8 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.1",
-    "bluereq": "^2.1.7",
     "chalk": "^2.4.1",
-    "config": "^1.30.0"
+    "config": "^1.30.0",
+    "node-fetch": "^2.6.1"
   }
 }
