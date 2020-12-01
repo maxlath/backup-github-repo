@@ -11,6 +11,7 @@ Backup all the issues and pull requests of a Github repo, including the comments
 * **Private repos**: while JSON download works, the tool will fail to download HTML versions (see [issue](https://github.com/maxlath/backup-github-repo/issues/2))
 
 ## Dependencies
+* [NodeJS](https://nodejs.org) >= 7.6
 * curl
 * [jq](https://stedolan.github.io/jq/)
 

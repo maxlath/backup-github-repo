@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-Promise = require('bluebird')
-const writeFile = Promise.promisify(require('fs').writeFile)
+const { writeFile } = require('fs').promises
 const path = require('path')
 
 const { green, blue, grey } = require('chalk')
@@ -13,13 +12,13 @@ const format = require('../lib/format')
 
 const save = data =>  writeFile(dataPath, JSON.stringify(data, null, 2))
 
-const getLocalDataOrFetch = () => {
+const getLocalDataOrFetch = async () => {
   try {
     data = require(dataPath)
     entriesCount = Object.keys(data).length
     console.log(green(`${entriesCount} issues and pull requests found at ${dataPath}`))
     console.log(blue(`delete ${folderPath} and re-run this command to update`))
-    return Promise.resolve(data)
+    return data
   } catch (err) {
     if (err.code !== 'MODULE_NOT_FOUND') throw err
     return getRepoData()
