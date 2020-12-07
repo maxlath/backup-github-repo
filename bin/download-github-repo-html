@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-# Executable defined in package.json
+# Executables declared in package.json
 repo=$(backup-github-repo_repository-name)
 token=$(backup-github-repo_github-token)
 
