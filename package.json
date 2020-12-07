@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Backup all the issues and pull requests of a Github repo, including the comments, events, and labels, as JSON and as HTML",
   "bin": {
-    "backup-github-repo": "./bin/backup_github_repo",
-    "download-github-repo-json": "./scripts/download_json",
-    "download-github-repo-html": "./scripts/download_html",
-    "repository-name": "./scripts/repository_name",
-    "github-token": "./scripts/github_token"
+    "backup-github-repo": "./bin/backup-github-repo",
+    "download-github-repo-json": "./bin/download-github-repo-json",
+    "download-github-repo-html": "./bin/download-github-repo-html",
+    "backup-github-repo_repository-name": "./bin/repository_name",
+    "backup-github-repo_github-token": "./bin/github_token"
   },
   "main": "index.js",
   "directories": {
