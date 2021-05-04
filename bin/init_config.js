@@ -2,7 +2,7 @@
 
 const { promisify } = require('util')
 const read = promisify(require('read'))
-const { yellow, blue, green } = require('chalk')
+const { yellow, green } = require('chalk')
 const getConfig = require('../lib/config/get_config.js')
 const possibleConfigPaths =  require('../lib/config/possible_config_paths')
 const { writeFile } = require('fs').promises
@@ -35,15 +35,14 @@ Enter token:`)
   return requestToken()
 }
 
-module.exports = async () => {
+const init = async () => {
   const { config, configPath } = getConfig()
-
   if (config && config.token) {
-    console.log(green(`[${name}] config found:`), configPath)
+    console.log(green(`[${name}] config and token found:`), configPath)
     return
   }
 
-  console.log(blue(`[${name}] config not found or empty`))
+  console.log(yellow(`[${name}] config not found or empty`))
   const message = `
 
 We recommand setting a configuration file to store a Github API token.
@@ -62,8 +61,12 @@ Create a configuration file? [Y/n]
   const chosenConfigPath = await chooseConfigPlace()
   const token = await requestToken()
 
-  console.log({ chosenConfigPath, token })
-
   await writeFile(chosenConfigPath, JSON.stringify({ token }, null, 2))
   console.log(green(`Config saved in ${chosenConfigPath}`))
 }
+
+init()
+.catch(err => {
+  if (err.message !== 'canceled') console.error(err)
+  process.exit(1)
+})
