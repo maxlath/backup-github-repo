@@ -1,6 +1,6 @@
 {
   "name": "backup-github-repo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Backup all the issues and pull requests of a Github repo, including the comments, events, and labels, as JSON and as HTML",
   "bin": {
     "backup-github-repo": "./bin/backup-github-repo.sh",
