@@ -12,17 +12,12 @@ Backup all the issues and pull requests of a Github repo, including the comments
 
 ## Dependencies
 * [NodeJS](https://nodejs.org) >= 7.6
-* curl
+* [curl](https://curl.se/)
 * [jq](https://stedolan.github.io/jq/)
 
 ## Install
 ```sh
-git clone https://github.com/maxlath/backup-github-repo
-cd backup-github-repo
-npm install
-# Make backup-github-repo available globally, so that all place with `Executables declared in package.json`
-# can find the executable they depend on. Alternatively, edit those scripts to rely on the executables full paths
-npm link
+npm install -g backup-github-repo
 ```
 
 ## Run
