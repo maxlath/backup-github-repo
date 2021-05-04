@@ -10,7 +10,7 @@ authorized_curl(){
 }
 
 echo "repo: $repo"
-last_id=$(cat "./repo-backup/data.json" | jq 'keys[]' -r | tail -n 1)
+last_id=$(cat "./repo-backup/data.json" | jq '[ keys[] | tonumber ] | max')
 echo "entries: $last_id"
 
 cd "./repo-backup/html"
