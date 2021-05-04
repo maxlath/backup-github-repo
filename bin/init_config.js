@@ -25,7 +25,7 @@ Where should the config file be stored?
   else return possibleConfigPaths[0]
 }
 
-const tokenPattern = /^[0-9a-f]{40}$/
+const tokenPattern = /^\w{40}$/
 const requestToken = async () => {
   const token = await prompt(`
 
