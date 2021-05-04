@@ -2,8 +2,8 @@
 set -eu
 
 # Executables declared in package.json
-repo=$(backup-github-repo_repository-name)
-token=$(backup-github-repo_github-token)
+repo=$(backup-github-repo_get_repository_name)
+token=$(backup-github-repo_get_github_token)
 
 authorized_curl(){
   curl -H 'User-Agent: backup-github-repo' -H "Authorization: token ${token}" $@
