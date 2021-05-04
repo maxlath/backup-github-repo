@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-console.log(require('../lib/config/get_config')().token)
+const { config } = require('../lib/config/get_config')()
+console.log(config.token)
