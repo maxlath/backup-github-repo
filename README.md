@@ -2,6 +2,8 @@
 
 Backup all the issues and pull requests of a Github repo, including the comments, events, and labels, as JSON and as HTML.
 
+[![NPM](https://nodei.co/npm/backup-github-repo.png?stars&downloads&downloadRank)](https://npmjs.com/package/backup-github-repo/)
+
 **Features**
 * generate a JSON file with all the issues and pull requests, including comments ([demo](https://github.com/maxlath/backup-github-repo/blob/master/demo/data.json))
 * generate one HTML file per issue or pull request ([demo](https://github.com/maxlath/backup-github-repo/tree/master/demo/html))
