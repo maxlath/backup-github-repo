@@ -24,10 +24,16 @@ npm install -g backup-github-repo
 
 ## Run
 
+### Local repository
 ```sh
 cd /path/to/my/repo/to/backup
 # First run will give you instructions to set a Github API token
 backup-github-repo
+```
+
+### Specify repository by URL
+```sh
+backup-github-repo https://github.com/maxlath/backup-github-repo
 ```
 
 ## License

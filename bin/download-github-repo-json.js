@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const [ url ] = process.argv.slice(2)
 const { writeFile } = require('fs').promises
 const path = require('path')
 
@@ -21,7 +22,7 @@ const getLocalDataOrFetch = async () => {
     return data
   } catch (err) {
     if (err.code !== 'MODULE_NOT_FOUND') throw err
-    return getRepoData()
+    return getRepoData({ url })
     .then(format)
     .then(save)
   }

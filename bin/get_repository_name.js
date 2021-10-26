@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-console.log(require('../lib/repo_name'))
+const [ url ] = process.argv.slice(2)
+console.log(require('../lib/repo_name')({ url }))

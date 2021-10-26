@@ -2,7 +2,7 @@
 set -eu
 
 # Executables declared in package.json
-repo=$(backup-github-repo_get_repository_name)
+repo=$(backup-github-repo_get_repository_name "$@")
 token=$(backup-github-repo_get_github_token)
 
 authorized_curl(){
