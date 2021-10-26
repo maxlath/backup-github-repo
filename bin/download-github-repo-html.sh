@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-set -eu
+set -e
+
+folder_name=$1
+url=$2
 
 # Executables declared in package.json
-repo=$(backup-github-repo_get_repository_name "$@")
+repo=$(backup-github-repo_get_repository_name "$url")
 token=$(backup-github-repo_get_github_token)
 
 authorized_curl(){
@@ -10,10 +13,10 @@ authorized_curl(){
 }
 
 echo "repo: $repo"
-last_id=$(cat "./repo-backup/data.json" | jq '[ keys[] | tonumber ] | max')
+last_id=$(cat "./${folder_name}/data.json" | jq '[ keys[] | tonumber ] | max')
 echo "entries: $last_id"
 
-cd "./repo-backup/html"
+cd "./${folder_name}/html"
 
 if [[ "$last_id" == "1" ]] ; then
   echo "Download single issue or pull request"

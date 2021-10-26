@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-const [ url ] = process.argv.slice(2)
+const [ folderName, url ] = process.argv.slice(2)
 const { writeFile } = require('fs').promises
 const path = require('path')
 
 const { green, blue, grey } = require('chalk')
-const folderPath = path.join(process.cwd(), `./repo-backup`)
-const dataPath = path.join(process.cwd(), `./repo-backup/data.json`)
+const folderPath = path.join(process.cwd(), `./${folderName}`)
+const dataPath = path.join(process.cwd(), `./${folderName}/data.json`)
 console.log(grey(`data path: ${dataPath}`))
 
 const getRepoData = require('../lib/get_repo_data')
