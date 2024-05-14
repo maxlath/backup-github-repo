@@ -45,7 +45,7 @@ replace_url_by_asset_hash(){
   filename="assets/${hash}${extension}"
   [ -e "assets/${hash}" ] || {
     authorized_curl -sL "$url" > "$filename" || { echo "couldn't fetch $url and put it into $filename" && exit 1 ; }
-    sed -i "s|${url}|${filename}\" data-original-url=\"${url}|g" *.html
+    grep --files-with-matches "$url" *.html | xargs sed -i "s|${url}|${filename}\" data-original-url=\"${url}|g"
   }
 }
 
