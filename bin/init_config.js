@@ -45,7 +45,7 @@ const init = async () => {
   console.log(yellow(`[${name}] config not found or empty`))
   const message = `
 
-We recommand setting a configuration file to store a Github API token.
+We recommand setting a configuration file to store a GitHub API token.
 
 Using a token increases the number of API requests we can make, see https://developer.github.com/v3/#rate-limiting
 Get a new token at https://github.com/settings/tokens
