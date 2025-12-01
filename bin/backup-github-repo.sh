@@ -47,8 +47,9 @@ mkdir -p "${folder_name}/html"
 
 # Executables declared in package.json
 backup-github-repo_init_config
-${include_json} && download-github-repo-json "$folder_name" "$url"
-${include_html} && download-github-repo-html "$folder_name" "$url"
-
-# Prevent "include_html" to trigger an unnecessary non-zero exit code
-true
+if ${include_json}; then
+    download-github-repo-json "$folder_name" "$url"
+fi
+if ${include_html}; then
+    download-github-repo-html "$folder_name" "$url"
+fi
