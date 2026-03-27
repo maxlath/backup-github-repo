@@ -5,12 +5,12 @@ Backup all the issues and pull requests of a Github repo, including the comments
 [![NPM](https://nodei.co/npm/backup-github-repo.png?stars&downloads&downloadRank)](https://npmjs.com/package/backup-github-repo/)
 
 **Features**
-* generate a JSON file with all the issues and pull requests, including comments ([demo](https://github.com/maxlath/backup-github-repo/blob/master/demo/data.json))
-* generate one HTML file per issue or pull request ([demo](https://github.com/maxlath/backup-github-repo/tree/master/demo/html))
-* download CSS files and images locally to allow offline browsing ([demo](https://github.com/maxlath/backup-github-repo/tree/master/demo/html/assets))
+* generate a JSON file with all the issues and pull requests, including comments ([demo](https://codeberg.org/maxlath/backup-github-repo/src/branch/main/demo/data.json))
+* generate one HTML file per issue or pull request ([demo](https://codeberg.org/maxlath/backup-github-repo/src/branch/main/demo/html))
+* download CSS files and images locally to allow offline browsing ([demo](https://codeberg.org/maxlath/backup-github-repo/src/branch/main/demo/html/assets))
 
 **Known limitations**
-* **Private repos**: while JSON download works, the tool will fail to download HTML versions (see [issue](https://github.com/maxlath/backup-github-repo/issues/2))
+* **Private repos**: while JSON download works, the tool will fail to download HTML versions (see [issue](https://codeberg.org/maxlath/backup-github-repo/issues/2))
 
 ## Dependencies
 * [NodeJS](https://nodejs.org) >= 7.6
@@ -33,7 +33,7 @@ backup-github-repo
 
 ### Specify repository by URL
 ```sh
-backup-github-repo https://github.com/maxlath/backup-github-repo
+backup-github-repo https://github.com/some/repository
 ```
 
 ## License
